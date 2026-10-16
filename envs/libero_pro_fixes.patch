@@ -1,0 +1,204 @@
+diff --git a/libero/libero/assets/turbosquid_objects/wine_rack_stand/wine_rack_stand.xml b/libero/libero/assets/turbosquid_objects/wine_rack_stand/wine_rack_stand.xml
+index 33de968..0ffed64 100644
+--- a/libero/libero/assets/turbosquid_objects/wine_rack_stand/wine_rack_stand.xml
++++ b/libero/libero/assets/turbosquid_objects/wine_rack_stand/wine_rack_stand.xml
+@@ -6,6 +6,7 @@
+   <worldbody>
+     <body>
+       <body name="object">
++      <site type="box" pos="0 -0.04446 0.12081" quat="0.8549119 -0.5187733 0 0" size="0.05604 0.01222 0.00139" group="0" rgba="0.8 0.8 0.8 0" name="top_region"/>
+       <geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="mesh" mesh="wine_rack_stand_vis" conaffinity="0" contype="0" group="1" material="wine_rack_stand" /><geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="-0.00000 0.00000 0.00365" quat="0.50000 -0.50000 0.50000 0.50000" size="0.00250 0.03692 0.05168" group="0" rgba="0.8 0.8 0.8 0.3" /><geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="-0.00000 0.03853 0.00559" quat="0.70560 -0.04613 -0.70560 0.04613" size="0.00248 0.03336 0.04997" group="0" rgba="0.8 0.8 0.8 0.3" /><geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="-0.00000 -0.03572 0.00702" quat="0.04959 -0.70537 -0.04959 0.70537" size="0.00248 0.03336 0.04997" group="0" rgba="0.8 0.8 0.8 0.3" /><geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="0.00000 0.00000 0.01139" quat="0.70711 0.00000 0.70711 0.00000" size="0.00250 0.00783 0.05025" group="0" rgba="0.8 0.8 0.8 0.3" /><geom solimp="0.998 0.998 0.001" solref="0.001 1" density="100" friction="0.95 0.3 0.1" type="box" pos="0.00000 0.01054 0.12618" quat="0.00000 -0.00000 0.99128 -0.13175" size="0.00423 0.00511 0.12109" group="0" rgba="0.8 0.8 0.8 0.3" /></body>
+       <site rgba="0 0 0 0" size="0.005" pos="0 0 -0.06" name="bottom_site" />
+       <site rgba="0 0 0 0" size="0.005" pos="0 0 0.04" name="top_site" />
+diff --git a/libero_ood/ood_language.yaml b/libero_ood/ood_language.yaml
+index ab4a9e9..0e7ed4d 100644
+--- a/libero_ood/ood_language.yaml
++++ b/libero_ood/ood_language.yaml
+@@ -114,7 +114,7 @@ libero_10:
+   LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate:
+     - place white mug on left plate and yellow-white mug on right plate
+     - put white mug on left plate and yellow-white mug on right one
+-    - set mugs: white on left plate, yellow-white on right plate
++    - "set mugs: white on left plate, yellow-white on right plate"
+   LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate:
+     - place white mug on plate and chocolate pudding to right
+     - put chocolate pudding right of plate and white mug on plate
+diff --git a/libero_ood/ood_object.yaml b/libero_ood/ood_object.yaml
+index 9712b3f..cf95166 100644
+--- a/libero_ood/ood_object.yaml
++++ b/libero_ood/ood_object.yaml
+@@ -8,7 +8,6 @@ libero_goal:
+       - black_bowl
+       - bigger_akita_black_bowl
+       - red_akita_black_bowl
+-      - red_bowl
+       - white_bowl
+       - yellow_bowl
+     cream_cheese:
+@@ -18,7 +17,6 @@ libero_goal:
+       - black_bowl
+       - bigger_akita_black_bowl
+       - red_akita_black_bowl
+-      - red_bowl
+       - white_bowl
+       - yellow_bowl
+     wooden_cabinet:
+@@ -36,7 +34,6 @@ libero_goal:
+   put_the_wine_bottle_on_top_of_the_cabinet:
+     wine_bottle:
+       - white_bottle
+-    :
+       - yellow_cabinet
+       - white_cabinet
+   put_the_bowl_on_the_plate:
+@@ -44,7 +41,6 @@ libero_goal:
+       - black_bowl
+       - bigger_akita_black_bowl
+       - red_akita_black_bowl
+-      - red_bowl
+       - white_bowl
+       - yellow_bowl
+     plate:
+@@ -54,7 +50,6 @@ libero_goal:
+       - black_bowl
+       - bigger_akita_black_bowl
+       - red_akita_black_bowl
+-      - red_bowl
+       - white_bowl
+       - yellow_bowl
+     flat_stove:
+@@ -67,7 +62,6 @@ libero_goal:
+       - black_bowl
+       - bigger_akita_black_bowl
+       - red_akita_black_bowl
+-      - red_bowl
+       - white_bowl
+       - yellow_bowl
+     wooden_cabinet:
+@@ -180,12 +174,17 @@ libero_10:
+     basket:
+       - red_basket
+   LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate:
++    # porcelain_mug intentionally has no candidates: this scene already
++    # has a distinct "red_coffee_mug_1" background object, and any
++    # candidate that collides with another object/region name already
++    # in this base BDDL breaks env creation (global string substitution
++    # renames regions too, e.g. porcelain_mug_init_region ->
++    # red_coffee_mug_init_region, colliding with the existing one).
++    # Swapping white_yellow_mug alone is enough for the object condition.
+     plate:
+       - yellow_plate
+     white_yellow_mug:
+       - white_porcelain_mug
+-    porcelain_mug:
+-      - white_porcelain_mug
+   LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate:
+     plate:
+       - yellow_plate
+diff --git a/perturbation.py b/perturbation.py
+index 2ff121d..aab99ec 100644
+--- a/perturbation.py
++++ b/perturbation.py
+@@ -141,9 +141,23 @@ class ObjectReplacePerturbator:
+         m = re.search(r"\(:language\b.*?\)", text, flags=re.S)
+         return m.span() if m else None
+ 
++    @staticmethod
++    def _filter_registered(candidates: List[str]) -> List[str]:
++        """跳过 yaml 里拼写错误/未注册的物体类别，避免仿真环境加载 objects 时才报 KeyError。"""
++        try:
++            from libero.libero.envs.base_object import OBJECTS_DICT
++        except ImportError:
++            return candidates  # libero 未加载时不做校验
++
++        valid = [c for c in candidates if c.lower() in OBJECTS_DICT]
++        invalid = [c for c in candidates if c.lower() not in OBJECTS_DICT]
++        if invalid:
++            print(f"[物体替换] 跳过未注册的候选类别（请检查 yaml 拼写）: {invalid}")
++        return valid
++
+     def perturb(self, task_suite_name: str, task_name: str, seed: Optional[int] = None) -> str:
+         if seed is not None:
+-            random.seed(seed)
++            random.seed(int(seed))
+ 
+         suite_cfg = self.config.get(task_suite_name, {})
+         task_cfg: Dict[str, List[str]] = suite_cfg.get(task_name, {})
+@@ -154,6 +168,7 @@ class ObjectReplacePerturbator:
+ 
+         mapping: Dict[str, str] = {}
+         for obj_interest, candidates in task_cfg.items():
++            candidates = self._filter_registered(candidates)
+             if not candidates:
+                 print(f"[物体替换] {obj_interest} 没有可替换候选，跳过。")
+                 continue
+@@ -174,9 +189,30 @@ class ObjectReplacePerturbator:
+         else:
+             prefix, language_block, suffix = content, "", ""
+ 
+-        for old_name, new_name in mapping.items():
+-            prefix = prefix.replace(old_name, new_name)
+-            suffix = suffix.replace(old_name, new_name)
++        # Two-phase substitution via unique placeholders. A naive
++        # sequential .replace() loop can corrupt names when one
++        # candidate's new_name is a substring-superset of another
++        # object's old_name (e.g. mapping both "white_yellow_mug" and
++        # "porcelain_mug" to the same candidate "white_porcelain_mug"
++        # -- the second .replace("porcelain_mug", "white_porcelain_mug")
++        # would also re-match the "porcelain_mug" tail already written
++        # by the first replacement, producing the mangled
++        # "white_white_porcelain_mug" and a KeyError in OBJECTS_DICT
++        # at env-creation time). Placeholders guarantee old_names are
++        # fully replaced before any new_name text exists to collide with.
++        placeholders: Dict[str, str] = {
++            old_name: f"__OBJREPLACE_{idx}__"
++            for idx, old_name in enumerate(mapping)
++        }
++
++        for old_name, placeholder in placeholders.items():
++            prefix = prefix.replace(old_name, placeholder)
++            suffix = suffix.replace(old_name, placeholder)
++
++        for old_name, placeholder in placeholders.items():
++            new_name = mapping[old_name]
++            prefix = prefix.replace(placeholder, new_name)
++            suffix = suffix.replace(placeholder, new_name)
+ 
+         new_content = prefix + language_block + suffix
+ 
+@@ -207,7 +243,7 @@ class LanguagePerturbator:
+ 
+     def perturb(self, task_suite_name: str, task_name: str, seed: Optional[int] = None) -> str:
+         if seed is not None:
+-            random.seed(seed)
++            random.seed(int(seed))
+ 
+         candidates = (self.config.get(task_suite_name, {}) or {}).get(task_name, [])
+         if not candidates:
+@@ -294,7 +330,7 @@ class TaskPerturbator:
+ 
+     def perturb(self, task_suite_name: str, task_name: str, seed: Optional[int] = None) -> str:
+         if seed is not None:
+-            random.seed(seed)
++            random.seed(int(seed))
+ 
+         suite_cfg = self.config.get(task_suite_name, {})
+         task_cfg = suite_cfg.get(task_name, {})
+@@ -391,7 +427,7 @@ class EnvironmentReplacePerturbator:
+ 
+     def perturb(self, task_suite_name: str, task_name: str, seed: Optional[int] = None) -> str:
+         if seed is not None:
+-            random.seed(seed)
++            random.seed(int(seed))
+ 
+         current_env = self._extract_current_env(task_suite_name, task_name)
+         if not current_env:
+@@ -655,7 +691,7 @@ def create_env(
+         task_suite_name=configs.get("task_suite_name", ""),
+         flags=flags,
+         configs=ood_task_configs,
+-        seed=configs.get("seed", int),
++        seed=configs.get("seed", None),
+     )
+ 
+     # 调用 EvalEnvCreator
